@@ -1,0 +1,5 @@
+Development = We run it using "air". We pick up the .env from the folder
+
+docker-compose.yml = We use it only to check the docker build locally for production
+
+production = We pass the env variables from github

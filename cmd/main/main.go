@@ -13,10 +13,10 @@ import (
 )
 
 func main() {
-	err := godotenv.Load(".env")
-	if err != nil {
-		panic("Error loading .env file")
-	}
+	godotenv.Load(".env")
+	// if err != nil {
+	// 	panic("Error loading .env file")
+	// }
 	database.Connect()
 	db := database.GetDB()
 	db.AutoMigrate(&models.Book{})
