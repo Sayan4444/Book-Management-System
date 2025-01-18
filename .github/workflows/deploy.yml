@@ -41,9 +41,11 @@ jobs:
             username: ${{ secrets.DIGITAL_OCEAN_USERNAME }}
             key: ${{ secrets.DIGITAL_OCEAN_SSH_KEY }}
             script: |
+              docker stop backend || true
+              docker rm backend || true
               docker run -d \
               --name backend \
-              --network host
+              --network host \
               --env DB="${{ secrets.DB }}" \
               --env PORT="${{secrets.PORT}}" \
               sayan4444/book-management-system:latest
