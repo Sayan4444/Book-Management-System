@@ -8,8 +8,8 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o .bin/main ./cmd/main
+RUN CGO_ENABLED=0 GOOS=linux go build -o ./.bin/main ./cmd/main
 
 EXPOSE 4000
 
-CMD ["./bin/main"]
+CMD ["./.bin/main"]

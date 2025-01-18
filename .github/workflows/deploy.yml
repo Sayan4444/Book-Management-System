@@ -43,7 +43,9 @@ jobs:
             script: |
               docker run -d \
               --name backend \
+              --network host
               --env DB="${{ secrets.DB }}" \
               --env PORT="${{secrets.PORT}}" \
-              -p "${{secrets.PORT}}:${{secrets.PORT}}" \
               sayan4444/book-management-system:latest
+
+              
