@@ -41,6 +41,7 @@ jobs:
             username: ${{ secrets.DIGITAL_OCEAN_USERNAME }}
             key: ${{ secrets.DIGITAL_OCEAN_SSH_KEY }}
             script: |
+              docker pull sayan4444/book-management-system:latest
               docker stop backend || true
               docker rm backend || true
               docker run -d \
@@ -49,5 +50,6 @@ jobs:
               --env DB="${{ secrets.DB }}" \
               --env PORT="${{secrets.PORT}}" \
               sayan4444/book-management-system:latest
+              docker image prune -f
 
               
