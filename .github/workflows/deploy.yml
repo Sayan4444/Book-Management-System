@@ -40,4 +40,11 @@ jobs:
             host: ${{ secrets.DIGITAL_OCEAN_HOST }}
             username: ${{ secrets.DIGITAL_OCEAN_USERNAME }}
             key: ${{ secrets.DIGITAL_OCEAN_SSH_KEY }}
-            script: mkdir book_management_system
+            script: |
+              cd book_management_system
+              docker run -d \
+              --name backend \
+              --env DB=${{ secrets.DB }} \
+              --env PORT=${{secrets.PORT}} \
+              -p ${{secrets.PORT}}:${{secrets.PORT}} \
+              sayan4444/book-management-system:latest
